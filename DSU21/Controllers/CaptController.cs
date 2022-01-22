@@ -9,7 +9,8 @@ namespace DSU21.Controllers
 {
     public class CaptController : Controller
     {
-        [Authorize(Roles = "Captain, Deckhand")] // Skapar en roll
+        //[Authorize(Roles = "Captain, Deckhand")] // Skapar en roll
+        [Authorize(Policy = "CaptainsOnly")]
         public IActionResult Index()
         {
             return View();

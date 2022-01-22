@@ -1,4 +1,6 @@
 ﻿<!DOCTYPE html>
+@using System.Security.Claims
+
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -37,6 +39,15 @@
                                 </li>
                             }
                         }
+
+                        @{ 
+                            if(User.Identity.IsAuthenticated)
+                            {
+                                var claims = (ClaimsIdentity)User.Identity;
+                                var fullName = claims.FindFirst(x => x.Type == "Fullname").Value;
+                            }
+                        }
+                        
                     </ul>
                 </div>
             </div>

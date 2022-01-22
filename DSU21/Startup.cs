@@ -56,6 +56,8 @@ namespace DSU21
                 options.Password.RequireLowercase = false;
             });
 
+            services.AddAuthorization(o => o.AddPolicy("CaptainsOnly", policy => policy.RequireClaim("Level", "5"))); // Skapar en Policy
+
             services.AddControllersWithViews();
         }
 

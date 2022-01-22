@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace DSU21.Controllers
@@ -115,6 +116,20 @@ namespace DSU21.Controllers
             await _signInManager.SignInAsync(user, isPersistent: false); // Loggar in användere
             return RedirectToAction("Index", "Capt"); // Renderar sidan index som ligger i capt-mappen
         }
+        #endregion
+
+        #region Claims
+
+        public async Task<IActionResult> Claims()
+        {
+            var user = await _userManager.GetUserAsync(User); // Hämtar användare
+            //var claim = new Claim("Level", "5"); // Skapar en ny claim
+            var claim = new Claim("FullName", "Jonathan Jonsson"); // Skapar en ny claim
+            var result = await _userManager.AddClaimAsync(user, claim); // Ger claim till användare
+            await _signInManager.SignInAsync(user, isPersistent: false);
+            return RedirectToAction("Index", "Capt");
+        }
+
         #endregion
     }
 }
