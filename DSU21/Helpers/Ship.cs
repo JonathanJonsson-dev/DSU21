@@ -8,19 +8,29 @@ namespace DSU21.Helpers
 {
     public class Ship
     {
-        
+        public Point StartPoint { get; }
+        public Direction Direction1 { get; }
 
         public enum Direction
         {
             Horizontal, Vertical
         }
-        public Ship(Point startLocation, Direction direction)
+
+        public enum Result
         {
-            StartLocation = startLocation;
-            Direction = direction;
+            Hit, Miss, Sunk
         }
 
-        public Point StartLocation { get; }
-        public Direction Direction { get; }
+        public Ship(Point startPoint, Direction direction)
+        {
+            StartPoint = startPoint;
+            Direction1 = direction;
+        }
+
+        public Result UnderAttack(Point point)
+        {
+
+            return Result.Hit;
+        }
     }
 }
