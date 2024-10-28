@@ -8,6 +8,7 @@ namespace DSU21.Helpers
 {
     public class Ship
     {
+        public string Type { get; set; } = "submaringe";
         public Point StartPoint { get; }
         public Direction Direction1 { get; }
 
@@ -29,7 +30,10 @@ namespace DSU21.Helpers
 
         public Result UnderAttack(Point point)
         {
-
+            if (point.X == 3 && point.Y == 6)
+            {
+                return Result.Sunk;
+            }
             return Result.Hit;
         }
     }

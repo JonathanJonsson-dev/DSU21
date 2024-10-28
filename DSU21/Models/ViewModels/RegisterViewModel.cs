@@ -19,7 +19,7 @@ namespace DSU21.Models.ViewModels
         [Required]
         [DataType(DataType.Password)]
         [Display(Name ="Bekräfta lösenord")]
-        [Compare("Password", ErrorMessage = "Lösenordern matchar inte varandra.")]
+        [Compare("Password", ErrorMessage = "Lösenorden matchar inte varandra.")]
         public string ConfirmPassword { get; set; }
     }
 }

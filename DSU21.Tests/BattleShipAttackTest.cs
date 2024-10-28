@@ -30,5 +30,15 @@ namespace DSU21.Tests
             // Assert
             return _ship.UnderAttack(point);
         }
+
+        [Test]
+        public void ShipIsPlacedInBattleField()
+        {
+            // Assert
+            Assert.That(_ship.StartPoint.X, Is.InRange(1, 10)); // Kontrollerar
+            Assert.That(_ship.StartPoint.Y, Is.InRange(1, 10)); // Kontrollerar
+            Assert.That(_ship.Type, Has.Length.EqualTo(10));
+            Assert.That(_ship, Is.InstanceOf(typeof(Ship)));
+        }
     }
 }
